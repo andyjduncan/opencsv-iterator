@@ -71,12 +71,16 @@ bintray {
     pkg {
         repo = 'maven'
         name = 'opencsv-iterator'
+        desc = 'Iterator wrapper around Open'
 
         websiteUrl = 'https://github.com/andyjduncan/opencsv-iterator'
         vcsUrl = 'https://github.com/andyjduncan/opencsv-iterator.git'
+        issueTrackerUrl = 'https://github.com/andyjduncan/opencsv-iterator/issues'
+
+        licenses = ['Apache-2.0']
 
         version {
-            vcsTag = version
+            vcsTag = project.version
         }
     }
 }
