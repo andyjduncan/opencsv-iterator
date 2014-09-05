@@ -2,9 +2,10 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.5
-version = '1.0-SNAPSHOT'
+version = '1.0.0'
 
 project.group = 'com.adjectivecolournoun'
 
@@ -37,12 +38,35 @@ groovydoc {
     link 'http://docs.oracle.com/javase/1.5.0/docs/api/', 'java.lang.', 'java.util.'
 }
 
+task sourceJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+artifacts {
+    archives sourceJar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+        }
+    }
+}
+
 bintray {
     user = bintrayUser
     key = bintrayKey
 
-    dryRun = true
+    dryRun = false
     publish = false
+
+    publications = ['mavenJava']
 
     pkg {
         repo = 'maven'
