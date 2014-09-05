@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'maven'
 
-sourceCompatibility = 1.6
+sourceCompatibility = 1.5
 version = '1.0-SNAPSHOT'
 
 project.group = 'com.adjectivecolournoun'
@@ -10,14 +10,19 @@ project.group = 'com.adjectivecolournoun'
 
 repositories {
     jcenter()
-    mavenLocal()
-    mavenCentral()
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.6'
-    compile 'au.com.bytecode:opencsv:2.4'
+    compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+    compile "au.com.bytecode:opencsv:$opencsvVersion"
 
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile('org.spockframework:spock-core:0.7-groovy-2.0') {
+        exclude group: 'org.codehaus.groovy'
+    }
+}
+
+groovydoc {
+    groovyClasspath = configurations.compile
+    link 'http://opencsv.sourceforge.net/apidocs/', 'au.com.bytecode.opencsv.'
+    link 'http://docs.oracle.com/javase/1.5.0/docs/api/', 'java.lang.', 'java.util.'
 }
