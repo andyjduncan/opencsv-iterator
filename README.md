@@ -1,5 +1,5 @@
-opencsv-iterator
-================
+OpenCSVIterator
+===============
 
 [![Build Status](https://travis-ci.org/andyjduncan/opencsv-iterator.svg?branch=master)](https://travis-ci.org/andyjduncan/opencsv-iterator)
 
@@ -33,3 +33,50 @@ as a List or String array:
     def withArray = new OpenCSVIterator(csvReader, 'field1', 'field2')
 
 The column names can be retrieved from the columns property on the iterator.
+
+Getting it
+----------
+
+OpenCSVIterator can be obtained from the Maven repository at [http://dl.bintray.com/andyjduncan/maven](http://dl.bintray.com/andyjduncan/maven)
+
+`build.gradle`
+
+    repositories {
+        maven {
+            url 'http://dl.bintray.com/andyjduncan/maven'
+        }
+    }
+    
+    dependencies {
+        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.0'
+    }
+    
+`pom.xml`
+
+    <repository>
+        <id>andyjduncan</id>
+        <url>http://dl.bintray.com/andyjduncan/maven</url>
+    </repository>
+    
+    <dependency>
+        <groupId>com.adjectivecolournoun</groupId>
+        <artifactId>opencsv-iterator</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+            
+Licence
+-------
+
+Copyright 2014 Andy Duncan
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
