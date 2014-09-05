@@ -1,12 +1,30 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'maven'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'release'
 
 sourceCompatibility = 1.5
 version = '1.0-SNAPSHOT'
 
 project.group = 'com.adjectivecolournoun'
 
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'http://maven.tmatesoft.com/content/repositories/releases/'
+        }
+        maven {
+            url 'http://maven.tmatesoft.com/content/repositories/snapshots/'
+        }
+    }
+    dependencies {
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5"
+        classpath 'au.com.ish.gradle:release:2.2.2'
+    }
+}
 
 repositories {
     jcenter()
@@ -25,4 +43,37 @@ groovydoc {
     groovyClasspath = configurations.compile
     link 'http://opencsv.sourceforge.net/apidocs/', 'au.com.bytecode.opencsv.'
     link 'http://docs.oracle.com/javase/1.5.0/docs/api/', 'java.lang.', 'java.util.'
+}
+
+bintray {
+    user = 'fff'
+    key = 'ggg'
+
+    publications = ['mavenStuff']
+
+    dryRun = true
+    publish = false
+
+    pkg {
+        repo = 'maven'
+        name = 'opencsv-iterator'
+
+        websiteUrl = 'https://github.com/andyjduncan/opencsv-iterator'
+        vcsUrl = 'https://github.com/andyjduncan/opencsv-iterator.git'
+
+        version {
+            vcsTag = version
+        }
+    }
+}
+
+release {
+    releaseDryRun = true
+    scm = 'git'
+}
+
+version = release.projectVersion
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.0"
 }
