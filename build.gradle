@@ -2,7 +2,6 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'release'
 
 sourceCompatibility = 1.5
 version = '1.0-SNAPSHOT'
@@ -13,16 +12,9 @@ buildscript {
     repositories {
         mavenLocal()
         jcenter()
-        maven {
-            url 'http://maven.tmatesoft.com/content/repositories/releases/'
-        }
-        maven {
-            url 'http://maven.tmatesoft.com/content/repositories/snapshots/'
-        }
     }
     dependencies {
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5"
-        classpath 'au.com.ish.gradle:release:2.2.2'
     }
 }
 
@@ -46,10 +38,8 @@ groovydoc {
 }
 
 bintray {
-    user = 'fff'
-    key = 'ggg'
-
-    publications = ['mavenStuff']
+    user = bintrayUser
+    key = bintrayKey
 
     dryRun = true
     publish = false
@@ -66,13 +56,6 @@ bintray {
         }
     }
 }
-
-release {
-    releaseDryRun = true
-    scm = 'git'
-}
-
-version = release.projectVersion
 
 task wrapper(type: Wrapper) {
     gradleVersion = "2.0"

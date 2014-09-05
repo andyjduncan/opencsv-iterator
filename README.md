@@ -1,6 +1,8 @@
 opencsv-iterator
 ================
 
+[![Build Status](https://travis-ci.org/andyjduncan/opencsv-iterator.svg?branch=master)](https://travis-ci.org/andyjduncan/opencsv-iterator)
+
 Conveniently wraps [CSVReader](http://opencsv.sourceforge.net/apidocs/au/com/bytecode/opencsv/CSVReader.html) from the
 [OpenCSV project](http://opencsv.sourceforge.net/) in an Iterator
 

@@ -3,8 +3,6 @@ package com.adjectivecolournoun.opencsviterator
 import au.com.bytecode.opencsv.CSVReader
 import spock.lang.Specification
 
-import javax.naming.OperationNotSupportedException
-
 class TestOpenCSVIterator extends Specification {
 
     CSVReader csvReader
@@ -90,7 +88,7 @@ value 1,''')
         iterator.remove()
 
         then:
-        thrown OperationNotSupportedException
+        thrown UnsupportedOperationException
     }
 
     void 'throws NoSuchElementException after last element'() {
