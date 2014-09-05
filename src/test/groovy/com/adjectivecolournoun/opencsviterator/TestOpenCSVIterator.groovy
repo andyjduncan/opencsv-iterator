@@ -19,7 +19,7 @@ class TestOpenCSVIterator extends Specification {
         new_iterator()
 
         then:
-        iterator.fields == ['field1', 'field2']
+        iterator.columns == ['field1', 'field2']
     }
 
     void 'returns rows as maps'() {
