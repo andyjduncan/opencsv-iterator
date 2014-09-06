@@ -32,12 +32,39 @@ as a List or String array:
     def withList = new OpenCSVIterator(csvReader, ['field1', 'field2'])
     def withArray = new OpenCSVIterator(csvReader, 'field1', 'field2')
 
-The column names can be retrieved from the columns property on the iterator.
+The column names can be retrieved from the `columns` property on the iterator.
+
+Extension
+---------
+
+OpenCSVIterator also includes an extension module that adds iterator methods directly to `CSVReader`.  There is a
+version to support the implicit Groovy iterator functions and variants to set column names.
+
+Implicit iterator:
+
+    def csvReader = new CSVReader(reader)
+    csvReader.each {
+        ...
+    }
+    
+Array of column names:
+
+    def csvReader = new CSVReader(reader)
+    csvReader.iterator('column1', 'column2').each {
+        ...
+    }
+    
+List of column names:
+
+    def csvReader = new CSVReader(reader)
+    csvReader.iterator(['column1', 'column2']).each {
+        ...
+    }
 
 Getting it
 ----------
 
-OpenCSVIterator can be obtained from the Maven repository at [http://dl.bintray.com/andyjduncan/maven](http://dl.bintray.com/andyjduncan/maven)
+OpenCSVIterator can be obtained from the Maven repository at <http://dl.bintray.com/andyjduncan/maven>
 
 `build.gradle`
 
@@ -48,7 +75,7 @@ OpenCSVIterator can be obtained from the Maven repository at [http://dl.bintray.
     }
     
     dependencies {
-        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.0'
+        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.1'
     }
     
 `pom.xml`
@@ -61,7 +88,7 @@ OpenCSVIterator can be obtained from the Maven repository at [http://dl.bintray.
     <dependency>
         <groupId>com.adjectivecolournoun</groupId>
         <artifactId>opencsv-iterator</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </dependency>
             
 Licence
@@ -69,14 +96,14 @@ Licence
 
 Copyright 2014 Andy Duncan
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-   [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+<http://www.apache.org/licenses/LICENSE-2.0>
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
