@@ -61,17 +61,15 @@ List of column names:
         ...
     }
 
-Getting it
-----------
+Get it
+------
 
-OpenCSVIterator can be obtained from the Maven repository at <http://dl.bintray.com/andyjduncan/maven>
+OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintray/jcenter)
 
 `build.gradle`
 
     repositories {
-        maven {
-            url 'http://dl.bintray.com/andyjduncan/maven'
-        }
+        jcenter()
     }
     
     dependencies {
@@ -81,8 +79,12 @@ OpenCSVIterator can be obtained from the Maven repository at <http://dl.bintray.
 `pom.xml`
 
     <repository>
-        <id>andyjduncan</id>
-        <url>http://dl.bintray.com/andyjduncan/maven</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>bintray</name>
+        <url>http://jcenter.bintray.com</url>
     </repository>
     
     <dependency>
