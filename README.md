@@ -73,7 +73,7 @@ OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintr
     }
     
     dependencies {
-        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.1'
+        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.2'
     }
     
 `pom.xml`
@@ -90,7 +90,7 @@ OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintr
     <dependency>
         <groupId>com.adjectivecolournoun</groupId>
         <artifactId>opencsv-iterator</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </dependency>
             
 Licence
