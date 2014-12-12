@@ -65,6 +65,7 @@ Get it
 ------
 
 OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintray/jcenter)
+Groovy is also required as a dependency of the project.
 
 `build.gradle`
 
@@ -73,7 +74,8 @@ OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintr
     }
     
     dependencies {
-        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.2'
+        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.3'
+        compile 'org.codehaus.groovy:groovy-all:2.3.8
     }
     
 `pom.xml`
@@ -90,9 +92,15 @@ OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintr
     <dependency>
         <groupId>com.adjectivecolournoun</groupId>
         <artifactId>opencsv-iterator</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </dependency>
-            
+
+    <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-all</artifactId>
+        <version>2.3.8</version>
+    </dependency>
+
 Licence
 -------
 

@@ -4,8 +4,8 @@ apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
-sourceCompatibility = 1.5
-version = '1.0.2'
+sourceCompatibility = 1.7
+version = '1.0.3'
 
 project.group = 'com.adjectivecolournoun'
 
@@ -23,8 +23,16 @@ repositories {
     jcenter()
 }
 
+configurations {
+    provided
+}
+
+sourceSets {
+    main { compileClasspath += configurations.provided }
+}
+
 dependencies {
-    compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+    provided "org.codehaus.groovy:groovy-all:$groovyVersion"
     compile "au.com.bytecode:opencsv:$opencsvVersion"
 
     testCompile('org.spockframework:spock-core:0.7-groovy-2.0') {
@@ -33,9 +41,9 @@ dependencies {
 }
 
 groovydoc {
-    groovyClasspath = configurations.compile
+    groovyClasspath = configurations.provided
     link 'http://opencsv.sourceforge.net/apidocs/', 'au.com.bytecode.opencsv.'
-    link 'http://docs.oracle.com/javase/1.5.0/docs/api/', 'java.lang.', 'java.util.'
+    link 'https://docs.oracle.com/javase/7/docs/api/', 'java.lang.', 'java.util.'
 }
 
 task sourcesJar(type: Jar) {
