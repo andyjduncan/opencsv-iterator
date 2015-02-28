@@ -1,6 +1,6 @@
 package com.adjectivecolournoun.opencsviterator
 
-import au.com.bytecode.opencsv.CSVReader
+import com.opencsv.CSVReader
 import spock.lang.Specification
 
 class TestOpenCSVExtension extends Specification {
@@ -19,6 +19,23 @@ value1, value2'''
 
         then:
         read == ['value1value2']
+    }
+
+    void 'does not replace iterator on non CSVReader objects'() {
+        given:
+        def anIterable = new Iterable<String>() {
+
+            @Override
+            Iterator<String> iterator() {
+                ['item 1', 'item 2'].iterator()
+            }
+        }
+
+        when:
+        def read = anIterable.collect { it }
+
+        then:
+        read == ['item 1', 'item 2']
     }
 
     void 'supports supplying column names in an array'() {

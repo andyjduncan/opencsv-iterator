@@ -1,6 +1,6 @@
 package com.adjectivecolournoun.opencsviterator
 
-import au.com.bytecode.opencsv.CSVReader
+import com.opencsv.CSVReader
 import spock.lang.Specification
 
 class TestOpenCSVIterator extends Specification {

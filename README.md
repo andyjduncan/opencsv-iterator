@@ -3,7 +3,7 @@ OpenCSVIterator
 
 [![Build Status](https://travis-ci.org/andyjduncan/opencsv-iterator.svg?branch=master)](https://travis-ci.org/andyjduncan/opencsv-iterator)
 
-Conveniently wraps [CSVReader](http://opencsv.sourceforge.net/apidocs/au/com/bytecode/opencsv/CSVReader.html) from the
+Conveniently wraps `com.opencsv.CSVReader` from the
 [OpenCSV project](http://opencsv.sourceforge.net/) in an Iterator
 
 Usage
@@ -61,10 +61,13 @@ List of column names:
         ...
     }
 
+From OpenCSV version 3, CSVReader began implementing Iterable and added a new `iterator()` method which returns an
+iterator of `String[]`.  The extension module still replaces this method with the `Map<String, String>` version.
+
 Get it
 ------
 
-OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintray/jcenter)
+OpenCSVIterator can be obtained from Bintray [JCenter](https://bintray.com/bintray/jcenter).
 Groovy is also required as a dependency of the project.
 
 `build.gradle`
@@ -74,8 +77,8 @@ Groovy is also required as a dependency of the project.
     }
     
     dependencies {
-        compile 'com.adjectivecolournoun:opencsv-iterator:1.0.3'
-        compile 'org.codehaus.groovy:groovy-all:2.3.8
+        compile 'com.adjectivecolournoun:opencsv-iterator:2.0.0'
+        compile 'org.codehaus.groovy:groovy-all:2.4.1
     }
     
 `pom.xml`
@@ -92,13 +95,13 @@ Groovy is also required as a dependency of the project.
     <dependency>
         <groupId>com.adjectivecolournoun</groupId>
         <artifactId>opencsv-iterator</artifactId>
-        <version>1.0.3</version>
+        <version>2.0.0</version>
     </dependency>
 
     <dependency>
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy-all</artifactId>
-        <version>2.3.8</version>
+        <version>2.4.1</version>
     </dependency>
 
 Licence

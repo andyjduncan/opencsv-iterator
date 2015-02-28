@@ -1,13 +1,13 @@
 package com.adjectivecolournoun.opencsviterator
 
-import au.com.bytecode.opencsv.CSVReader
+import com.opencsv.CSVReader
 
 /**
- * A wrapper around {@link au.com.bytecode.opencsv.CSVReader} to provide an {@link java.util.Iterator}
+ * A wrapper around {@link com.opencsv.CSVReader} to provide an {@link java.util.Iterator}
  * over the rows.
  *
  * @author Andy Duncan
- * @see au.com.bytecode.opencsv.CSVReader
+ * @see com.opencsv.CSVReader
  */
 class OpenCSVIterator implements Iterator<Map<String, String>> {
 
@@ -22,7 +22,7 @@ class OpenCSVIterator implements Iterator<Map<String, String>> {
     /**
      * Create a new CSV iterator using the first row as column names
      *
-     * @param reader {@link au.com.bytecode.opencsv.CSVReader} to read
+     * @param reader {@link com.opencsv.CSVReader} to read
      */
     OpenCSVIterator(final CSVReader reader) {
         this.reader = reader
@@ -32,7 +32,7 @@ class OpenCSVIterator implements Iterator<Map<String, String>> {
     /**
      * Create a new CSV iterator using the specified column names
      *
-     * @param reader {@link au.com.bytecode.opencsv.CSVReader} to read
+     * @param reader {@link com.opencsv.CSVReader} to read
      * @param columns Column names
      */
     OpenCSVIterator(final CSVReader reader, final String... columns) {
@@ -43,7 +43,7 @@ class OpenCSVIterator implements Iterator<Map<String, String>> {
     /**
      * Create a new CSV iterator using the specified column names
      *
-     * @param reader {@link au.com.bytecode.opencsv.CSVReader} to read
+     * @param reader {@link com.opencsv.CSVReader} to read
      * @param columns Column names
      */
     OpenCSVIterator(final CSVReader reader, final List<String> columns) {
