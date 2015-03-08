@@ -77,7 +77,7 @@ Groovy is also required as a dependency of the project.
     }
     
     dependencies {
-        compile 'com.adjectivecolournoun:opencsv-iterator:2.0.0'
+        compile 'com.adjectivecolournoun:opencsv-iterator:2.0.1'
         compile 'org.codehaus.groovy:groovy-all:2.4.1
     }
     
@@ -95,7 +95,7 @@ Groovy is also required as a dependency of the project.
     <dependency>
         <groupId>com.adjectivecolournoun</groupId>
         <artifactId>opencsv-iterator</artifactId>
-        <version>2.0.0</version>
+        <version>2.0.1</version>
     </dependency>
 
     <dependency>
