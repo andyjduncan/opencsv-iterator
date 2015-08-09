@@ -77,8 +77,8 @@ Groovy is also required as a dependency of the project.
     }
     
     dependencies {
-        compile 'com.adjectivecolournoun:opencsv-iterator:2.0.2'
-        compile 'org.codehaus.groovy:groovy-all:2.4.3
+        compile 'com.adjectivecolournoun:opencsv-iterator:2.0.3'
+        compile 'org.codehaus.groovy:groovy-all:2.4.4
     }
     
 `pom.xml`
@@ -95,19 +95,19 @@ Groovy is also required as a dependency of the project.
     <dependency>
         <groupId>com.adjectivecolournoun</groupId>
         <artifactId>opencsv-iterator</artifactId>
-        <version>2.0.2</version>
+        <version>2.0.3</version>
     </dependency>
 
     <dependency>
         <groupId>org.codehaus.groovy</groupId>
         <artifactId>groovy-all</artifactId>
-        <version>2.4.3</version>
+        <version>2.4.4</version>
     </dependency>
 
 Licence
 -------
 
-Copyright 2014 Andy Duncan
+Copyright 2014, 2015 Andy Duncan
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

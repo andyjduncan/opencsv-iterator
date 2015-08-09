@@ -6,7 +6,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'idea'
 
 sourceCompatibility = 1.7
-version = '2.0.2'
+version = '2.0.3'
 
 project.group = 'com.adjectivecolournoun'
 
