@@ -1,3 +1,3 @@
 moduleName=opencsv-iterator
-moduleVersion=2.0.3
+moduleVersion=2.0.4
 extensionClasses=com.adjectivecolournoun.opencsviterator.OpenCSVExtension
