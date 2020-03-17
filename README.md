@@ -37,15 +37,17 @@ The column names can be retrieved from the `columns` property on the iterator.
 Extension
 ---------
 
-OpenCSVIterator also includes an extension module that adds iterator methods directly to `CSVReader`.  There is a
-version to support the implicit Groovy iterator functions and variants to set column names.
+OpenCSVIterator also includes an extension module that add an iterator method directly to `CSVReader`.  
 
-Implicit iterator:
+~~Implicit iterator:~~
 
     def csvReader = new CSVReader(reader)
     csvReader.each {
         ...
     }
+
+From OpenCSV version 3, CSVReader began implementing Iterable and added a new `iterator()` method which returns an
+iterator of `String[]`.  As `DefaultGroovyMethods` is now implemented in Java, there is no way to  intercept this call.
     
 Array of column names:
 
@@ -61,8 +63,6 @@ List of column names:
         ...
     }
 
-From OpenCSV version 3, CSVReader began implementing Iterable and added a new `iterator()` method which returns an
-iterator of `String[]`.  The extension module still replaces this method with the `Map<String, String>` version.
 
 Get it
 ------
@@ -77,8 +77,8 @@ Groovy is also required as a dependency of the project.
     }
     
     dependencies {
-        compile 'com.adjectivecolournoun:opencsv-iterator:2.0.2'
-        compile 'org.codehaus.groovy:groovy-all:2.4.3
+        compile 'com.adjectivecolournoun:opencsv-iterator:2.0.3'
+        compile 'org.codehaus.groovy:groovy:3.0.2
     }
     
 `pom.xml`
@@ -95,19 +95,19 @@ Groovy is also required as a dependency of the project.
     <dependency>
         <groupId>com.adjectivecolournoun</groupId>
         <artifactId>opencsv-iterator</artifactId>
-        <version>2.0.2</version>
+        <version>2.0.3</version>
     </dependency>
 
     <dependency>
         <groupId>org.codehaus.groovy</groupId>
-        <artifactId>groovy-all</artifactId>
-        <version>2.4.3</version>
+        <artifactId>groovy</artifactId>
+        <version>3.0.2</version>
     </dependency>
 
 Licence
 -------
 
-Copyright 2014 Andy Duncan
+Copyright 2020 Andy Duncan
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

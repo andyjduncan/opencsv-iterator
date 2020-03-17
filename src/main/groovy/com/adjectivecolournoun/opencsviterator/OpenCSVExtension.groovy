@@ -10,6 +10,13 @@ import com.opencsv.CSVReader
  */
 class OpenCSVExtension {
 
+    static int INITIALIZE
+
+    static {
+        println 'init'
+        CSVReader.metaClass.iterator = OpenCSVExtension::iterator
+    }
+
     /**
      * Return an iterator over a {@link com.opencsv.CSVReader}
      *
@@ -19,6 +26,7 @@ class OpenCSVExtension {
      * @see OpenCSVIterator#OpenCSVIterator(CSVReader)
      */
     static Iterator<Map<String, String>> iterator(CSVReader self) {
+        println 'Regular'
         new OpenCSVIterator(self)
     }
 
@@ -31,10 +39,11 @@ class OpenCSVExtension {
      * @see OpenCSVIterator#OpenCSVIterator(CSVReader)
      */
     static Iterator iterator(Iterable self) {
+        println 'Iterable'
         if (self instanceof CSVReader) {
             new OpenCSVIterator(self)
         } else {
-            self.class.methods.find { it.name == 'iterator' }.invoke(self, null)
+            self.class.methods.find { it.name == 'iterator' }.invoke(self, null) as Iterator
         }
     }
     /**

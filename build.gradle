@@ -1,24 +1,16 @@
-apply plugin: 'java'
-apply plugin: 'groovy'
-apply plugin: 'maven'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'maven-publish'
-apply plugin: 'idea'
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'maven'
+    id 'maven-publish'
+    id "com.jfrog.bintray" version "1.8.4"
+    id 'idea'
+}
 
-sourceCompatibility = 1.7
-version = '2.0.2'
+sourceCompatibility = '8'
+version = '2.0.3'
 
 project.group = 'com.adjectivecolournoun'
-
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-    dependencies {
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5"
-    }
-}
 
 repositories {
     jcenter()
@@ -34,12 +26,14 @@ sourceSets {
 
 dependencies {
     provided "org.codehaus.groovy:groovy-all:$groovyVersion"
-    compile "com.opencsv:opencsv:$opencsvVersion"
+    implementation "com.opencsv:opencsv:$opencsvVersion"
 
-    testCompile "org.codehaus.groovy:groovy-all:$groovyVersion"
-    testCompile('org.spockframework:spock-core:0.7-groovy-2.0') {
-        exclude group: 'org.codehaus.groovy'
-    }
+    testImplementation "org.codehaus.groovy:groovy-all:$groovyVersion"
+    testImplementation 'org.spockframework:spock-core:2.0-M2-groovy-3.0'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 groovydoc {
@@ -50,12 +44,12 @@ groovydoc {
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.groovy
-    classifier = 'sources'
+    archiveClassifier = 'sources'
 }
 
 task groovydocJar(type: Jar, dependsOn: 'groovydoc') {
     from groovydoc.destinationDir
-    classifier = 'javadoc'
+    archiveClassifier = 'javadoc'
 }
 
 task exportJavadoc(type: Copy, dependsOn: 'groovydoc') {
@@ -97,7 +91,7 @@ bintray {
     pkg {
         repo = 'maven'
         name = 'opencsv-iterator'
-        desc = 'Iterator wrapper around Open'
+        desc = 'Iterator wrapper around OpenCSV'
 
         websiteUrl = 'https://github.com/andyjduncan/opencsv-iterator'
         vcsUrl = 'https://github.com/andyjduncan/opencsv-iterator.git'
@@ -109,10 +103,6 @@ bintray {
             vcsTag = project.version
         }
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = "2.0"
 }
 
 idea {
